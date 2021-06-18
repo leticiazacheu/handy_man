@@ -1,7 +1,9 @@
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/shared/Home';
-import About from './components/shared/About';
-import Nabar from './components/shared/Navbar';
+import About from '.components/shared/About';
+import Navbar from './components/shared/Navbar';
+import Workers from './components/workers/Workers';
+//import About from './components/shared/About';
 // nav routes
   const App = () => (
     <>
