@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import WorkerList from './WorkerList';
+import WorkerForm from './WorkerForm';
 
 const Workers = () => {
   const [workers, setWorkers] = useState([])
@@ -50,7 +51,11 @@ const Workers = () => {
       <h1>
         Workers
       </h1>
-      <WorkerList workers={workers} updateWorker={updateWorker} deleteWorker={deleteWorker} />
+      <WorkerForm addWorker={addWorker} />
+      <WorkerList 
+        workers={workers} 
+        updateWorker={updateWorker} 
+        deleteWorker={deleteWorker} />
     </>
   )
 }
