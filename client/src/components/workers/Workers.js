@@ -5,7 +5,6 @@ import WorkerForm from './WorkerForm';
 
 const Workers = () => {
   const [workers, setWorkers] = useState([])
-  
   useEffect( () => {
     axios.get("/api/workers")
       .then( res => {
