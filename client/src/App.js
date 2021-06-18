@@ -7,7 +7,7 @@ import Workers from './components/workers/Workers';
 // nav routes
   const App = () => (
     <>
-      <Nabar />
+      <Navbar />
       <Switch>      
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
