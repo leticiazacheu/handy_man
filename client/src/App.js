@@ -11,7 +11,12 @@ import Workers from './components/workers/Workers';
       <Switch>      
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
+<<<<<<< HEAD
        <Route exact path="/about" component={About} />
+=======
+        <Route exact path="/about" component={About}/>
+       {/* <Route exact path="/about" component={About} /> */}
+>>>>>>> fb868df (fixed worker js files)
       </Switch>
      
     </>
