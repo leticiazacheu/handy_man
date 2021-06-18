@@ -3,7 +3,7 @@ import axios from 'axios';
 import WorkerList from './WorkerList';
 
 const Workers = () => {
-  const [blogs, setBlogs] = useState([])
+  const [workers, setWorkers] = useState([])
   useEffect( () => {
     axios.get("/api/workers")
       .then( res => {

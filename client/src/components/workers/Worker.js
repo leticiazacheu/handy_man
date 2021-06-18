@@ -1,4 +1,4 @@
-import Services from "../posts/Services";
+import Services from "../services/Services";
 
 const Worker = ({ id, first_name, last_name, specialty, updateWorker, deleteWorker }) => {
   return(
