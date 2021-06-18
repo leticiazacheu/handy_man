@@ -1,8 +1,8 @@
 import Worker from './Worker';
 
-const WorkerList = ({ workers, updateBlog, deleteWorker}) => (
+const WorkerList = ({ workers, updateWorker, deleteWorker}) => (
   <>
-    { workers.map( b => 
+    { workers.map( w => 
       <>
         <Worker {...w} updateWorker={updateWorker} deleteWorker={deleteWorker} />
         <hr />
