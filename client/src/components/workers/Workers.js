@@ -10,6 +10,7 @@ const Workers = () => {
     axios.get("/api/workers")
       .then( res => {
         setWorkers(res.data)
+        console.log(res.data)
       })
       .catch( err => console.log(err) )
   }, [])
@@ -51,6 +52,9 @@ const Workers = () => {
       <h1>
         Workers
       </h1>
+      {workers.map((worker) => (
+        <a href={`/worker/${worker.id}`}>{worker.first_name}</a>
+      ))}
       <WorkerForm addWorker={addWorker} />
       <WorkerList 
         workers={workers} 

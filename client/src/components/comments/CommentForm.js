@@ -25,6 +25,7 @@ const CommentForm = ({ addComment }) => {
         required
       />
       <input
+        type="body"
         name="body"
         value={comment.body}
         onChange={(e) => setComment({ ...comment, body: e.target.value })}
