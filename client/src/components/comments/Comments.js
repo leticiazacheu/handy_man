@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import CommentList from './CommentLists';
+import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
 const Comments = ({ serviceId }) => {
@@ -8,7 +8,7 @@ const Comments = ({ serviceId }) => {
   useEffect( () => {
     axios.get(`/api/services/${serviceId}/comments`)
       .then( res => {
-        setPosts(res.data)
+        setComments(res.data)
       })
       .catch( err => console.log(err))
   }, [])
@@ -38,7 +38,7 @@ const Comments = ({ serviceId }) => {
   const deleteComment = (id) => {
     axios.delete(`/api/services/${serviceId}/comments/${id}`)
       .then( res => {
-        setPosts( comments.filter( c => c.id !== id ))
+        setComments( comments.filter( c => c.id !== id ))
         alert(res.data.message)
       })
       .catch( err => console.log(err))
@@ -47,8 +47,8 @@ const Comments = ({ serviceId }) => {
   return (
     <>
       <h1>Comments</h1>
-      <PostForm addComment={addComment} />
-      <PostList 
+      <CommentForm addComment={addComment} />
+      <CommentList 
         serviceId={serviceId} 
         comments={comments} 
         updateComment={updateComment}

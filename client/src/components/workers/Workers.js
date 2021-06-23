@@ -70,10 +70,10 @@ const Workers = () => {
         <a href={`/worker/${worker.id}`}>{worker.first_name}</a>
       ))}
       <WorkerForm addWorker={addWorker} />
-      {/* <WorkerList 
+      <WorkerList 
         workers={workers}
         updateWorker={updateWorker} 
-        deleteWorker={deleteWorker} /> */}
+        deleteWorker={deleteWorker} />
     </>
   )
 }

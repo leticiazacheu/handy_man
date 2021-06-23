@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ServiceList from './ServiceLists';
+import ServiceList from './ServiceList';
 import ServiceForm from './ServiceForm';
 
 const Services = ({ workerId }) => {
   const [services, setServices] = useState([])
+
   useEffect( () => {
     axios.get(`/api/workers/${workerId}/services`)
       .then( res => {

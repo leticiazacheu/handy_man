@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2021_06_18_024821) do
   create_table "services", force: :cascade do |t|
     t.boolean "complete"
     t.integer "rating"
+    t.string "title"
     t.bigint "worker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
     t.index ["worker_id"], name: "index_services_on_worker_id"
   end
 

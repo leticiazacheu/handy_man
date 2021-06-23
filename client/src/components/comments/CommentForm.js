@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const CommentForm = ({ addComment }) => {
-  const [post, setComment] = useState({ author: "", subject: "", body: "" })
+  const [comment, setComment] = useState({ author: "", subject: "", body: "" })
   const handleSubmit = (e) => {
     e.preventDefault()
     addComment(comment)

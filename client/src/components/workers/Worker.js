@@ -6,7 +6,7 @@ const Worker = ({ id, first_name, last_name, specialty, updateWorker, deleteWork
       <h1>{first_name} {last_name}</h1>
       <h3>Specialty: {specialty}</h3>
       <button onClick={ () => deleteWorker(id) }>Delete Worker</button>
-      <Services workerId={id} />
+      <Services workerId={id} updateWorker={updateWorker} />
     </>
   )
 }
