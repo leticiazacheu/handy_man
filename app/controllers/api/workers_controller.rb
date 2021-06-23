@@ -1,7 +1,11 @@
 class Api::WorkersController < ApplicationController
   before_action :set_workers, only: [:show, :update, :destroy]
   def index 
+<<<<<<< HEAD
     render json: Worker.all
+=======
+    render json: Worker.All
+>>>>>>> 6117727 (updated repo)
   end
 
   def show
