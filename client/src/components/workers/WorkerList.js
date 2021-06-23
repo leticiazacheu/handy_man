@@ -10,4 +10,5 @@ const WorkerList = ({ workers, updateWorker, deleteWorker}) => (
     )}
   </>
 )
+
 export default WorkerList;
