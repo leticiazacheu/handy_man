@@ -5,6 +5,20 @@ import WorkerForm from './WorkerForm';
 
 const Workers = () => {
   const [workers, setWorkers] = useState([])
+
+  // const getWorkers = async () => {
+  //   try {
+  //     let res = await axios.get("/api/workers");
+  //     console.log(res.data);
+  //     setWorkers(res.data)
+  //   } catch (e) {
+  //     console.log("error getting workers", e);
+  //   }
+  // }
+
+  // useEffect (() => {
+  //   getWorkers();
+  // }, [])
   
   useEffect( () => {
     axios.get("/api/workers")
@@ -56,11 +70,12 @@ const Workers = () => {
         <a href={`/worker/${worker.id}`}>{worker.first_name}</a>
       ))}
       <WorkerForm addWorker={addWorker} />
-      <WorkerList 
-        workers={workers} 
+      {/* <WorkerList 
+        workers={workers}
         updateWorker={updateWorker} 
-        deleteWorker={deleteWorker} />
+        deleteWorker={deleteWorker} /> */}
     </>
   )
 }
+
 export default Workers;
