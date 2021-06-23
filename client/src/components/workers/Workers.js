@@ -1,13 +1,30 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import WorkerList from './WorkerList';
+import WorkerForm from './WorkerForm';
 
 const Workers = () => {
   const [workers, setWorkers] = useState([])
+
+  // const getWorkers = async () => {
+  //   try {
+  //     let res = await axios.get("/api/workers");
+  //     console.log(res.data);
+  //     setWorkers(res.data)
+  //   } catch (e) {
+  //     console.log("error getting workers", e);
+  //   }
+  // }
+
+  // useEffect (() => {
+  //   getWorkers();
+  // }, [])
+  
   useEffect( () => {
     axios.get("/api/workers")
       .then( res => {
         setWorkers(res.data)
+        console.log(res.data)
       })
       .catch( err => console.log(err) )
   }, [])
@@ -49,8 +66,16 @@ const Workers = () => {
       <h1>
         Workers
       </h1>
-      <WorkerList workers={workers} updateWorker={updateWorker} deleteWorker={deleteWorker} />
+      {workers.map((worker) => (
+        <a href={`/worker/${worker.id}`}>{worker.first_name}</a>
+      ))}
+      <WorkerForm addWorker={addWorker} />
+      {/* <WorkerList 
+        workers={workers}
+        updateWorker={updateWorker} 
+        deleteWorker={deleteWorker} /> */}
     </>
   )
 }
+
 export default Workers;

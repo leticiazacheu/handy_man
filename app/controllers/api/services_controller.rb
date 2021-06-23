@@ -29,7 +29,7 @@ class Api::ServicesController < ApplicationController
     
       def destroy
         @service.destroy
-        render json: {message: ‘service deleted'}
+        render json: {message: "service deleted"}
       end
       
       private

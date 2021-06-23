@@ -1,7 +1,7 @@
 class Api::WorkersController < ApplicationController
   before_action :set_workers, only: [:show, :update, :destroy]
   def index 
-    render json: Worker.All
+    render json: Worker.all
   end
 
   def show
@@ -40,4 +40,3 @@ class Api::WorkersController < ApplicationController
       end
   end
 
-end
