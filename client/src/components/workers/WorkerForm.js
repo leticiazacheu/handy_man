@@ -36,4 +36,5 @@ const WorkerForm = ({ addWorker }) => {
     </form>
   )
 }
+
 export default WorkerForm;
