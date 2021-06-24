@@ -66,7 +66,7 @@ const Workers = () => {
       <>
         <h3><a href={`/worker/${worker.id}`}>{worker.first_name}{worker.last_name}</a></h3>
         <h4>Specialty: {worker.specialty}</h4>
-        <button onClick={ () => deleteWorker(worker.id) }>Delete Worker</button>
+        <button onClick={ () => deleteWorker }>Delete Worker</button>
         <br />
       </>
     ))

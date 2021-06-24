@@ -20,7 +20,7 @@ const Worker = (props) => {
   const [worker, setWorker] = useState({});
 
   const getWorker = async () => {
-    let res = await Axios.get(`/api/worker/${id}`);
+    let res = await Axios.get(`/api/workers/${id}`);
     setWorker (res.data);
     console.log(res.data);
   }
@@ -32,7 +32,7 @@ const Worker = (props) => {
   return (
     <>
       <h1>{worker.first_name}{worker.last_name}</h1>
-      <Services serviceId={id} />
+      <Services workerId={id} />
     </>
   )
 }

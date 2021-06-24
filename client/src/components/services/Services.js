@@ -3,7 +3,7 @@ import axios from 'axios';
 import ServiceList from './ServiceList';
 import ServiceForm from './ServiceForm';
 
-const Services = ({ workerId }) => {
+const Services = ({workerId}) => {
   const [services, setServices] = useState([])
 
   useEffect( () => {
@@ -48,6 +48,12 @@ const Services = ({ workerId }) => {
   return (
     <>
       <h1>Services</h1>
+      {services.map((service) => (
+        <>
+          <a href={`/service/${service.id}`}>{service.type}</a>
+          <br/>
+        </>
+      ))}
       <ServiceForm addService={addService} />
       <ServiceList 
         workerId={workerId} 
