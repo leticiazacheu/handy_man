@@ -1,6 +1,6 @@
 
 
-const Comment = ({ author, subject, body, service_id }) => {
+const Comment = ({ author, subject, body, serviceId }) => {
   return(
     <>
       <h1>{author}</h1>

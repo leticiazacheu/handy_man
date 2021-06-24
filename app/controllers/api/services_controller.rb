@@ -44,6 +44,4 @@ class Api::ServicesController < ApplicationController
     def service_params
       params.require(:service).permit(:type, :complete, :rating)
     end
-    
   end
-end

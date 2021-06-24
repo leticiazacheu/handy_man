@@ -64,11 +64,12 @@ const Workers = () => {
   return(
     <>
       <h1>
-        Workers
+        List of Workers
       </h1>
-      {workers.map((worker) => (
+      {/* {workers.map((worker) => (
         <a href={`/worker/${worker.id}`}>{worker.first_name}</a>
-      ))}
+      ))} */}
+      <h3>Add a new worker:</h3>
       <WorkerForm addWorker={addWorker} />
       <WorkerList 
         workers={workers}

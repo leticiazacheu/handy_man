@@ -1,28 +1,28 @@
 import { useState, useEffect } from 'react';
 
 const ServiceForm = ({ addService }) => {
-    const [service, setService] = useState({ title: "", body: "", rating: null})
+    const [service, setService] = useState({ type: "", complete: "", rating: ""})
 
     const handleSubmit = (e) => {
       e.preventDefault()
       addService(service)
-      setService()
+      setService({ type: "", complete: "", rating: "" })
     }
      
   return(
     <form onSubmit={handleSubmit}>
       <input
-        name = "title"
-        value = { service.title }
-        onChange = { (e) => setService({...service, title: e.target.value}) }
+        name = "type"
+        value = { service.type }
+        onChange = { (e) => setService({...service, type: e.target.value}) }
         required
-        placeholder = "title"
+        placeholder = "type"
         />
       <input
-        name = "body"
-        value = { service.bodyrating }
-        onChange = { (e) => setService({...service, bodyrating: e.target.value}) }
-        placeholder = "body"
+        name = "complete"
+        value = { service.complete }
+        onChange = { (e) => setService({...service, complete: e.target.value}) }
+        placeholder = "complete"
         required
         />
       <input
