@@ -1,7 +1,7 @@
 import React from 'react';
 import Comments from '../comments/Comments';
 
-const Service = ({ id, complete, rating, type, worker_id, updateService, deleteService }) => {
+const Service = ({ id, complete, rating, type, workerId, updateService, deleteService }) => {
   return (
     <>
       <h1>{type}</h1>

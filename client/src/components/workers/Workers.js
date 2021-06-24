@@ -6,28 +6,28 @@ import WorkerForm from './WorkerForm';
 const Workers = () => {
   const [workers, setWorkers] = useState([])
 
-  // const getWorkers = async () => {
-  //   try {
-  //     let res = await axios.get("/api/workers");
-  //     console.log(res.data);
-  //     setWorkers(res.data)
-  //   } catch (e) {
-  //     console.log("error getting workers", e);
-  //   }
-  // }
+  const getWorkers = async () => {
+    try {
+      let res = await axios.get("/api/workers");
+      console.log(res.data);
+      setWorkers(res.data)
+    } catch (e) {
+      console.log("error getting workers", e);
+    }
+  }
 
-  // useEffect (() => {
-  //   getWorkers();
-  // }, [])
-  
-  useEffect( () => {
-    axios.get("/api/workers")
-      .then( res => {
-        setWorkers(res.data)
-        console.log(res.data)
-      })
-      .catch( err => console.log(err) )
+  useEffect (() => {
+    getWorkers();
   }, [])
+  
+  // useEffect( () => {
+  //   axios.get("/api/workers")
+  //     .then( res => {
+  //       setWorkers(res.data)
+  //       console.log(res.data)
+  //     })
+  //     .catch( err => console.log(err) )
+  // }, [])
   
   const addWorker = (worker) => {
     // { blog: {title: "asdfas", category: "adsfa"}}
@@ -60,6 +60,17 @@ const Workers = () => {
       })
       .catch( err => console.log(err) )
   }
+
+  const renderWorkers = () => {
+    return workers.map((worker) => (
+      <>
+        <h3><a href={`/worker/${worker.id}`}>{worker.first_name}{worker.last_name}</a></h3>
+        <h4>Specialty: {worker.specialty}</h4>
+        <button onClick={ () => deleteWorker(worker.id) }>Delete Worker</button>
+        <br />
+      </>
+    ))
+  }
   
   return(
     <>
@@ -71,10 +82,12 @@ const Workers = () => {
       ))} */}
       <h3>Add a new worker:</h3>
       <WorkerForm addWorker={addWorker} />
-      <WorkerList 
+      <br/>
+      {/* <WorkerList 
         workers={workers}
         updateWorker={updateWorker} 
-        deleteWorker={deleteWorker} />
+        deleteWorker={deleteWorker} /> */}
+      {renderWorkers()}
     </>
   )
 }
