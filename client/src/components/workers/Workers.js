@@ -61,10 +61,10 @@ const Workers = () => {
       .catch( err => console.log(err) )
   }
 
-  const renderWorkers = (id) => {
+  const renderWorkers = () => {
     return workers.map((worker) => (
       <>
-        <h3><a href={`/worker/${worker.id}`}>{worker.first_name}{worker.last_name}</a></h3>
+        <h3><a href={`/workers/${worker.id}`}>{worker.first_name}{worker.last_name}</a></h3>
         <h4>Specialty: {worker.specialty}</h4>
         <button onClick={ () => deleteWorker(worker.id) }>Delete Worker</button>
         <br />

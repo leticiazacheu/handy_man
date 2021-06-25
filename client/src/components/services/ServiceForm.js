@@ -7,7 +7,7 @@ const ServiceForm = (props) => {
   console.log(props);
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("/api/workers/${workerId}/services", { type:"", complete:false, rating:0})
+    axios.post("/api/workers/${worker.id}/services", { type:"", complete:false, rating:0})
       .then((res) => {
         console.log(res.data);
         props.history.goBack();
