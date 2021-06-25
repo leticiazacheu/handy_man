@@ -34,14 +34,14 @@ class Api::ServicesController < ApplicationController
   
   private
     def set_worker
-      @worker = Worker.find(params[worker_id])
+      @worker = Worker.find(params[:worker_id])
     end
 
     def set_service
-      @service = @worker.services.find(params[:id])
+      @service = @worker.services.find(params[:worker_id])
     end
 
     def service_params
-      params.require(:service).permit(:type, :complete, :rating)
+      params.require(:service).permit(:title, :complete, :rating, :worker_id)
     end
   end

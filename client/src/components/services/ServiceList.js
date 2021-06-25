@@ -5,7 +5,7 @@ const ServiceList = ({ workerId, services, updateService, deleteService }) => {
   return (
     <>
       { services.map( s =>
-        <Service {...s} workerId={workerId} updateService={updateService} deleteService={deleteService} />
+        <Service {...s} updateService={updateService} deleteService={deleteService} />
       )}
     </>
   )

@@ -54,6 +54,7 @@ const Services = ({workerId}) => {
           <br/>
         </>
       ))}
+      <h4>Add Service:</h4>
       <ServiceForm addService={addService} />
       <ServiceList 
         workerId={workerId} 

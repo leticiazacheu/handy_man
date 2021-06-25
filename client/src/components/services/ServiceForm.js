@@ -2,29 +2,36 @@ import axios from 'axios';
 import { useState } from 'react';
 import Service from './Service';
 
-const ServiceForm = (props) => {
-  const [service, setService] = useState({type:"", complete:false, rating:0});
-  console.log(props);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios.post("/api/workers/${worker.id}/services", { type:"", complete:false, rating:0})
-      .then((res) => {
-        console.log(res.data);
-        props.history.goBack();
-      })
-      .catch((err) => alert(err));
-  };
+// const ServiceForm = (props) => {
+//   const [service, setService] = useState({type:"", complete:false, rating:0});
+//   console.log(props);
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     axios.post("/api/workers/${workerId}/services", { type:"", complete:false, rating:0})
+//       .then((res) => {
+//         console.log(res.data);
+//         props.history.goBack();
+//       })
+//       .catch((err) => alert(err));
+//   };
+  const ServiceForm = ({addService}) => {
+    const [service, setService] = useState({title: "", complete:false, rating:0})
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      addService(service)
+      setService({title:"", complete:false, rating:0})
+    }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label>Type of Service:</label>
       <input
-        name = "type"
-        value = {service.type }
-        onChange = { (e) => setService({...service, type:e.target.value}) }
+        name = "title"
+        value = {service.title }
+        onChange = { (e) => setService({...service, title:e.target.value}) }
         required
-        placeholder = "type"
+        placeholder = "type of service"
         />
         <label>Completed:</label>
       <input
@@ -47,7 +54,7 @@ const ServiceForm = (props) => {
       </form>
     </>
   )
-}
+  }
 
 // const ServiceForm = ({ addService }) => {
 //     const [service, setService] = useState({ type: "", complete: "", rating: ""})
