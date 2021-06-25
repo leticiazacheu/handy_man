@@ -3,11 +3,11 @@ import { useState } from 'react';
 import Service from './Service';
 
 const ServiceForm = (props) => {
-  const [service, setService] = useState({type:"", complete:false, rating:""});
+  const [service, setService] = useState({type:"", complete:false, rating:0});
   console.log(props);
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("/api/workers/${workerId}/services", { type:"", complete:false, rating:""})
+    axios.post("/api/workers/${workerId}/services", { type:"", complete:false, rating:0})
       .then((res) => {
         console.log(res.data);
         props.history.goBack();
@@ -18,6 +18,7 @@ const ServiceForm = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <label>Type of Service:</label>
       <input
         name = "type"
         value = {service.type }
@@ -25,6 +26,7 @@ const ServiceForm = (props) => {
         required
         placeholder = "type"
         />
+        <label>Completed:</label>
       <input
         type="checkbox"
         name = "complete"
@@ -33,6 +35,7 @@ const ServiceForm = (props) => {
         placeholder = "complete"
         required
         />
+        <label>Rating out of 5:</label>
       <input
         name = "rating"
         value = {service.rating }
